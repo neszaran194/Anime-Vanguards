@@ -4,6 +4,10 @@ local Config = require("./config")
 local State = require("./core/state")
 local Story = require("./games/story")
 local Network = require("./core/network")
+local UI = require("./ui")
+
+-- Start the user interface
+UI.Initialize(Config)
 
 print("------ Anime Vanguards Auto-Play Script Initialized ------")
 

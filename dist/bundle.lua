@@ -41,9 +41,49 @@ targetProfile.Cost then print(string.format('[Story] Placing %s at position %d',
 spot.UnitName,index))Network.PlaceUnit(spot.UnitName,spot.x,spot.y,spot.z)break
 end end end end return Story end function __DARKLUA_BUNDLE_MODULES.d()local v=
 __DARKLUA_BUNDLE_MODULES.cache.d if not v then v={c=__modImpl()}
-__DARKLUA_BUNDLE_MODULES.cache.d=v end return v.c end end end local Config=
+__DARKLUA_BUNDLE_MODULES.cache.d=v end return v.c end end do local function 
+__modImpl()local UI={}local repo=
+[[https://raw.githubusercontent.com/deividcomsono/Obsidian/main/]]local Library=
+loadstring(game:HttpGet(repo..'Library.lua'))()local ThemeManager=loadstring(
+game:HttpGet(repo..'addons/ThemeManager.lua'))()local SaveManager=loadstring(
+game:HttpGet(repo..'addons/SaveManager.lua'))()function UI.Initialize(Config)
+local Window=Library:CreateWindow({Title='Anime Vanguards Hub',Footer=
+'Developer Edition',Icon=95816097006870,NotifySide='Right',ShowCustomCursor=true
+})local Tabs={AutoFarm=Window:AddTab('Auto Farm','swords'),Units=Window:AddTab(
+'Units','users'),Misc=Window:AddTab('Misc','cog'),['UI Settings']=Window:AddTab(
+'UI Settings','settings')}local FarmLeftGroup=Tabs.AutoFarm:AddLeftGroupbox(
+'Farm Controller')FarmLeftGroup:AddToggle('AutoFarmToggle',{Text=
+'Enable Auto Farm',Default=Config.AutoFarm,Tooltip=
+'Starts the auto placement and farm loop',Callback=function(Value)Config.
+AutoFarm=Value end})FarmLeftGroup:AddToggle('AutoLeaveToggle',{Text=
+'Auto Return to Lobby',Default=Config.AutoLeave,Tooltip=
+'Leave the game when target wave is reached',Callback=function(Value)Config.
+AutoLeave=Value end})FarmLeftGroup:AddSlider('TargetWaveSlider',{Text=
+'Target Wave',Default=Config.TargetWave,Min=1,Max=50,Rounding=0,Compact=false,
+Callback=function(Value)Config.TargetWave=Value end})local UnitLeftGroup=Tabs.
+Units:AddLeftGroupbox('Unit Automation')UnitLeftGroup:AddToggle(
+'AutoPlaceToggle',{Text='Auto Place Units',Default=true,Tooltip=
+'Automatically place units based on coordinates',Callback=function(Value)print(
+'[UI] Auto Place set to:',Value)end})UnitLeftGroup:AddToggle('AutoUpgradeToggle'
+,{Text='Auto Upgrade Units',Default=Config.AutoUpgrade,Tooltip=
+'Automatically upgrade placed units when Yen is sufficient',Callback=function(
+Value)Config.AutoUpgrade=Value end})local MiscLeftGroup=Tabs.Misc:
+AddLeftGroupbox('Performance Boosters')MiscLeftGroup:AddToggle('Disable3DRender'
+,{Text='Disable 3D Rendering',Default=false,Tooltip=
+[[Turns off 3D world rendering to lower CPU/GPU usage dramatically]],Callback=
+function(Value)game:GetService('RunService'):Set3DRenderingEnabled(not Value)end
+})MiscLeftGroup:AddSlider('MaxFPSSlider',{Text='Max FPS Cap',Default=60,Min=15,
+Max=240,Rounding=0,Compact=false,Callback=function(Value)if setfpscap then
+setfpscap(Value)end end})ThemeManager:SetLibrary(Library)SaveManager:SetLibrary(
+Library)ThemeManager:SetFolder('AnimeVanguardsHub')SaveManager:SetFolder(
+'AnimeVanguardsHub/configs')SaveManager:BuildConfigSection(Tabs['UI Settings'])
+ThemeManager:ApplyToTab(Tabs['UI Settings'])SaveManager:LoadAutoloadConfig()end
+return UI end function __DARKLUA_BUNDLE_MODULES.e()local v=
+__DARKLUA_BUNDLE_MODULES.cache.e if not v then v={c=__modImpl()}
+__DARKLUA_BUNDLE_MODULES.cache.e=v end return v.c end end end local Config=
 __DARKLUA_BUNDLE_MODULES.a()local State=__DARKLUA_BUNDLE_MODULES.b()local Story=
-__DARKLUA_BUNDLE_MODULES.d()local Network=__DARKLUA_BUNDLE_MODULES.c()print(
+__DARKLUA_BUNDLE_MODULES.d()local Network=__DARKLUA_BUNDLE_MODULES.c()local UI=
+__DARKLUA_BUNDLE_MODULES.e()UI.Initialize(Config)print(
 '------ Anime Vanguards Auto-Play Script Initialized ------')task.spawn(function
 ()while Config.AutoFarm do local currentWave=State.GetCurrentWave()Story.Run(
 Config)if currentWave>=Config.TargetWave then print(string.format(
