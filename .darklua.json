@@ -1,0 +1,17 @@
+{
+  "generator": {
+    "name": "dense"
+  },
+  "rules": [
+    "remove_types",
+    "remove_comments",
+    "remove_spaces",
+    "remove_unused_variable",
+    "compute_expression"
+  ],
+  "bundle": {
+    "require_mode": {
+      "name": "path"
+    }
+  }
+}

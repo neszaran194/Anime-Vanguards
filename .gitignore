@@ -1,0 +1,8 @@
+# Exclude compiler binary and zips
+darklua.exe
+darklua.zip
+
+# Exclude temporary editor configurations and cache
+.vscode/
+.DS_Store
+*.log
