@@ -1,0 +1,43 @@
+{
+  "languageMode": "luau",
+  "diagnostics": {
+    "globals": [
+      "game",
+      "workspace",
+      "script",
+      "task",
+      "Vector3",
+      "Vector2",
+      "UDim2",
+      "UDim",
+      "Color3",
+      "Rect",
+      "CFrame",
+      "TweenInfo",
+      "Instance",
+      "readfile",
+      "loadstring",
+      "writefile",
+      "getgc",
+      "getgenv",
+      "getreg",
+      "getloadedmodules",
+      "fireclickdetector",
+      "firetouchinterest",
+      "hookmetatable",
+      "newcclosure",
+      "warn",
+      "setfpscap",
+      "getscriptbytecode",
+      "request",
+      "cloneref",
+      "decompile",
+      "getnilinstances",
+      "WebSocket",
+      "setthreadidentity",
+      "keypress",
+      "keyrelease",
+      "firesignal"
+    ]
+  }
+}
