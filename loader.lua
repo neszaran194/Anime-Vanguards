@@ -2,7 +2,7 @@
 -- This is the script you distribute to users.
 
 local LoaderConfig = {
-    ScriptUrl = "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/Anime%20Vanguards/dist/bundle.lua",
+    ScriptUrl = "https://raw.githubusercontent.com/neszaran194/Anime-Vanguards/main/dist/bundle.lua",
     UseKeySystem = false,
     ExpectedKey = "AV-PRO-1234" -- Simple fallback key check
 }
